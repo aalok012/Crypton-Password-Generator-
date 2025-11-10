@@ -16,7 +16,7 @@ function App() {
   const passwordRef = useRef(null);
 
   // Function to generate the password based on selected options
-  const passwordGenerator = useCallback(() => {
+  const passwordGenerator = useCallback(() => { //usecallback optimizes the re renders of a function  
     let pass = ""; // Initialize an empty password
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjklmnopqurstuvwxyz"; // Base string with alphabets
 
@@ -34,7 +34,7 @@ function App() {
     setPassword(pass); // Update the password state
   }, [length, numberAllowed, charAllowed, setPassword]);
 
-const copyPasswordToClipboard = useCallback(() => {
+const copyPasswordToClipboard = useCallback(() => { //function to select the password in the input box 
   passwordRef.current?.select();
   window.navigator.clipboard.writeText(password);
 }, [password]);
@@ -43,7 +43,7 @@ const copyPasswordToClipboard = useCallback(() => {
 
 useEffect(() => {
     passwordGenerator();
-  }, [length, numberAllowed, charAllowed, passwordGenerator]);
+  }, [length, numberAllowed, charAllowed, passwordGeternerator]);
   return (
     <div className='w-full text-center max-w-md mx-auto shadow-md rounded-lg px-20 my-8 text-orange-300 bg-gray-600'>
       {/* Title of the application */}
